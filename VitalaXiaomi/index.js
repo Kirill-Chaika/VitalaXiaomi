@@ -391,39 +391,39 @@ async function f() {
     const browser = await puppeteer.launch({ headless: "new" });
     const page = await browser.newPage();
 
-    // for (let i = 0; i < arrLinkSkayXiaomi.length; i += 1) {
-    //     await page.goto(arrLinkSkayXiaomi[i]);
-    //     const n = await page.$("#txt");
+    for (let i = 0; i < arrLinkSkayXiaomi.length; i += 1) {
+        await page.goto(arrLinkSkayXiaomi[i]);
+        const n = await page.$("#txt");
 
-    //     let arr1 = await page.evaluate(() => {
+        let arr1 = await page.evaluate(() => {
 
-    //         let text2 = document.querySelector("h1").innerText;
-    //         if (document.querySelector(".products-item-cost") != null) {
-    //             return text2 + 'SKAY: ' + document.querySelector(".products-item-cost").innerText
-    //         } else { return }
+            let text2 = document.querySelector("h1").innerText;
+            if (document.querySelector(".products-item-cost") != null) {
+                return text2 + 'SKAY: ' + document.querySelector(".products-item-cost").innerText
+            } else { return }
 
-    //     });
+        });
 
-    //     console.log(arr1)
-    //     await page.setDefaultNavigationTimeout(0);
-    // }
-    // for (let i = 0; i < arrLinkJabkoXiaomi.length; i += 1) {
-    //     await page.goto(arrLinkJabkoXiaomi[i]);
+        console.log(arr1)
+        await page.setDefaultNavigationTimeout(0);
+    }
+    for (let i = 0; i < arrLinkJabkoXiaomi.length; i += 1) {
+        await page.goto(arrLinkJabkoXiaomi[i]);
 
-    //     let arr2 = await page.evaluate(() => {
-    //         let text2 = document.querySelector("h1").innerText;
-    //         if (document.querySelector(".price-new__uah") != null) {
-    //             return (
-    //                 text2 + "Jabko: " + document.querySelector(".price-new__uah").innerText
-    //             );
-    //         } else {
-    //             return text2;
-    //         }
-    //     });
+        let arr2 = await page.evaluate(() => {
+            let text2 = document.querySelector("h1").innerText;
+            if (document.querySelector(".price-new__uah") != null) {
+                return (
+                    text2 + "Jabko: " + document.querySelector(".price-new__uah").innerText
+                );
+            } else {
+                return text2;
+            }
+        });
 
-    //     console.log(arr2);
-    //     page.setDefaultNavigationTimeout(0);
-    // }
+        console.log(arr2);
+        page.setDefaultNavigationTimeout(0);
+    }
     for (let i = 0; i < arrLinkChinaGadgetsXiaomi.length; i += 1) {
         await page.goto(arrLinkChinaGadgetsXiaomi[i]);
         const n = await page.$("#txt");
