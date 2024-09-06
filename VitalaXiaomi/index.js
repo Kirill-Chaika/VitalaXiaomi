@@ -2,7 +2,7 @@ console.log("Hello world");
 
 const puppeteer = require("puppeteer");
 
-
+const capcha = ["BAG"]
 const arrLinkSkayXiaomi = [
     "https://skay.ua/rasprodazha-xiaomi/72017-xiaomi-poco-f6-pro-12512gb-black-nfc-eu.html",
     "https://skay.ua/rasprodazha-xiaomi/72018-xiaomi-poco-f6-pro-12512gb-white-nfc-eu.html",
@@ -389,7 +389,6 @@ const arrLinkTouchXiaomi = [
 async function f() {
     const browser = await puppeteer.launch({ headless: "new" });
     const page = await browser.newPage();
-
     for (let i = 0; i < arrLinkSkayXiaomi.length; i += 1) {
         await page.goto(arrLinkSkayXiaomi[i]);
         const n = await page.$("#txt");
@@ -426,18 +425,21 @@ async function f() {
     for (let i = 0; i < arrLinkChinaGadgetsXiaomi.length; i += 1) {
         await page.goto(arrLinkChinaGadgetsXiaomi[i]);
         const n = await page.$("#txt");
+        
 
         let arr3 = await page.evaluate(() => {
-
-            let text2 = document.querySelector(".product-name").innerText;
-            if (document.querySelector(".price") != null) {
+            
+            let text2 = document.querySelector("h3").innerText;
+            if (document.querySelector(".price") !== null) {
                 return text2 + 'CG: ' + document.querySelector(".price").innerText
-            } else { return text2 }
-
+            } else {return text2}
         });
-
+        
+       
         console.log(arr3)
+        
         await page.setDefaultNavigationTimeout(0);
+        
     }
     for (let i = 0; i < arrLinkPixophoneXiaomi.length; i += 1) {
         await page.goto(arrLinkPixophoneXiaomi[i]);
@@ -471,5 +473,6 @@ async function f() {
         console.log(arr2);
         await page.setDefaultNavigationTimeout(0);
     }
+
 }
 f()

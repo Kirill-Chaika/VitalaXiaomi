@@ -145,55 +145,57 @@ async function f() {
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
 
-  for (let i = 0; i < arrLinkSkayGooglePixel.length; i += 1) {
-    await page.goto(arrLinkSkayGooglePixel[i]);
-    const n = await page.$("#txt");
+  // for (let i = 0; i < arrLinkSkayGooglePixel.length; i += 1) {
+  //   await page.goto(arrLinkSkayGooglePixel[i]);
+  //   const n = await page.$("#txt");
 
-    let arr1 = await page.evaluate(() => {
+  //   let arr1 = await page.evaluate(() => {
 
-      let text2 = document.querySelector("h1").innerText;
-      if (document.querySelector(".products-item-cost") != null) {
-        return text2 + 'SKAY: ' + document.querySelector(".products-item-cost").innerText
-      } else { return }
+  //     let text2 = document.querySelector("h1").innerText;
+  //     if (document.querySelector(".products-item-cost") != null) {
+  //       return text2 + 'SKAY: ' + document.querySelector(".products-item-cost").innerText
+  //     } else { return }
 
-    });
+  //   });
 
-    console.log(arr1)
-    await page.setDefaultNavigationTimeout(0);
-  }
-  for (let i = 0; i < arrLinkJabkoGooglePixel.length; i += 1) {
-    await page.goto(arrLinkJabkoGooglePixel[i]);
+  //   console.log(arr1)
+  //   await page.setDefaultNavigationTimeout(0);
+  // }
+  // for (let i = 0; i < arrLinkJabkoGooglePixel.length; i += 1) {
+  //   await page.goto(arrLinkJabkoGooglePixel[i]);
 
-    let arr2 = await page.evaluate(() => {
-      let text2 = document.querySelector("h1").innerText;
-      if (document.querySelector(".price-new__uah") != null) {
-        return (
-          text2 + "Jabko: " + document.querySelector(".price-new__uah").innerText
-        );
-      } else {
-        return text2;
-      }
-    });
+  //   let arr2 = await page.evaluate(() => {
+  //     let text2 = document.querySelector("h1").innerText;
+  //     if (document.querySelector(".price-new__uah") != null) {
+  //       return (
+  //         text2 + "Jabko: " + document.querySelector(".price-new__uah").innerText
+  //       );
+  //     } else {
+  //       return text2;
+  //     }
+  //   });
 
-    console.log(arr2);
-    page.setDefaultNavigationTimeout(0);
-  }
+  //   console.log(arr2);
+  //   page.setDefaultNavigationTimeout(0);
+  // }
 
   for (let i = 0; i < arrLinkChinaGadgetsGooglePixel.length; i += 1) {
     await page.goto(arrLinkChinaGadgetsGooglePixel[i]);
-    const n = await page.$("#txt");
+        const n = await page.$("#txt");
+        
 
-    let arr3 = await page.evaluate(() => {
-
-      let text2 = document.querySelector(".product-name").innerText;
-      if (document.querySelector(".price") != null) {
-        return text2 + 'CG: ' + document.querySelector(".price").innerText
-      } else { return text2 }
-
-    });
-
-    console.log(arr3)
-    await page.setDefaultNavigationTimeout(0);
+        let arr3 = await page.evaluate(() => {
+            
+            let text2 = document.querySelector("h3").innerText;
+            if (document.querySelector(".price") !== null) {
+                return text2 + 'CG: ' + document.querySelector(".price").innerText
+            } else {return text2}
+        });
+        
+       
+        console.log(arr3)
+        
+        await page.setDefaultNavigationTimeout(0);
   }
   for (let i = 0; i < arrLinkPixophoneGooglePixel.length; i += 1) {
     await page.goto(arrLinkPixophoneGooglePixel[i]);
